@@ -2,14 +2,42 @@
 <html lang=en style=width:100%;height:100%;margin:0;padding:0;overflow:hidden>
   
 <style>
-  #container, .monaco-editor, .monaco-editor * {
-    z-index: auto;
+  /* Main container */
+  #container {
+    z-index: 0;
+    position: relative;
   }
-  .monaco-editor .suggest-widget,
-  .monaco-editor .monaco-hover,
+
+  /* Base editor */
+  .monaco-editor,
+  .monaco-editor-background,
+  .monaco-editor .inputarea.ime-input {
+    z-index: 0 !important;
+  }
+
+  /* Keep UI elements usable but still low */
+  .monaco-editor .suggest-widget {
+    z-index: 5 !important;
+  }
+
+  .monaco-editor .parameter-hints-widget {
+    z-index: 5 !important;
+  }
+
+  .monaco-editor .monaco-hover {
+    z-index: 5 !important;
+  }
+
+  .monaco-editor .context-view {
+    z-index: 10 !important;
+  }
+
+  /* Context menu */
   .monaco-menu-container {
-    z-index: 50 !important;
+    z-index: 10 !important;
   }
+
+  /* Your overlay elements can now use z-index: 20+ to appear above */
 </style>
 
   <head>
