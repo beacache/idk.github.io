@@ -4804,12 +4804,45 @@
             fontStyle: "bold"
           }],
           colors: {
-            "editor.background": "#f2f2f2",
-            "editor.foreground": "#f2f2f2"
+            "editor.background": "#252525",
+            "editor.foreground": "#cccccc"
           }
         });
-        monaco.editor.defineTheme("net-theme-dark", {
+        monaco.editor.defineTheme("net-theme-light", {
           base: "vs",
+          inherit: true,
+          colors: {
+            "editor.background": "#f2f2f2"
+          },
+          rules: [{
+            token: "global",
+            foreground: "6397db",
+            fontStyle: "bold"
+          },
+          {
+            token: "keyword",
+            foreground: "db7489",
+            fontStyle: "bold"
+          },
+          {
+            token: "comment",
+            foreground: "999999"
+          },
+          {
+            token: "number",
+            foreground: "f99157"
+          },
+          {
+            token: "string",
+            foreground: "f0b77d"
+          },
+          {
+            token: "Method",
+            foreground: "ffa1dc"
+          }]
+        });
+        monaco.editor.defineTheme("net-theme-dark", {
+          base: "vs-dark",
           inherit: true,
           colors: {
             "editor.background": "#f2f2f2"
@@ -4844,7 +4877,7 @@
         editor = monaco.editor.create(document.getElementById("container"), {
           value: "",
           language: "lua",
-          theme: "net-theme-dark",
+          theme: "net-theme-light",
           folding: true,
           scrollbar: {
             useShadows: false,
